@@ -1,0 +1,162 @@
+/* --- Global Styles & Typography (New additions for consistency and style) --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Modern Font added */
+    background-color: #faf6ce72; /* Light background color */
+}
+
+/* --- Header/Navbar Styles --- */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 2rem; /* Reduced padding */
+    background-color: #700303;
+    position: sticky; /* Keep navbar visible on scroll */
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .menu-toggle {
+    display: none; /* hide the button on desktop */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .logo {
+    height: 50px; /* Slightly smaller logo */
+    width: 50px; /* Ensure square aspect ratio */
+    object-fit: contain;
+    border-radius: 8px;
+    background-color: white; /* Added to make the logo stand out */
+  }
+  
+  h1 {
+    font-size: 1.5rem; /* Slightly smaller font */
+    margin: 0;
+    color: white;
+    font-weight: 700;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    background-color: #700303;
+    padding: 0.5rem 1rem; /* Reduced padding */
+    font-size: 1.1rem;
+    flex-grow: 1; 
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    /* Transition added for smooth scale effect */
+    transition: background-color 0.3s, color 0.3s, border-radius 0.3s, transform 0.3s; 
+    display: inline-block; 
+  }
+
+  .nav-links a:hover {
+    background-color: #f3f2e1; /* White background on hover */
+    color: #700303;
+    border-radius: 8px;
+    transform: scale(1.05); /* Subtle enlargement (5% bigger) */
+  }
+  
+  .nav-links a.active { /* Active state (current page) */
+    background-color: #f3f2e1;
+    color: #700303;
+    border-radius: 8px;
+  }
+
+
+  /* --- Footer Styles (Standardized and moved here) --- */
+  .footer {
+    display: flex;
+    background-color: #700303;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 0;
+    font-size: 1rem;
+    font-weight: 400;
+    width: 100%;
+    margin-top: auto; /* Push footer to the bottom */
+  }
+
+  .footer p {
+      margin: 0;
+      display: inline;
+  }
+  
+  /* --- Mobile Styles (Slide-in Menu) --- */
+  @media (max-width: 768px) {
+    .header {
+      justify-content: space-between;
+      padding: 0.5rem 1rem;
+    }
+
+    .nav-links {
+        display: none; /* Hide links by default on mobile */
+        flex-grow: 0;
+    }
+
+    .menu-toggle {
+      display: block; /* show hamburger icon */
+      color: white;
+      order: -1; /* Move button to the left */
+    }
+  
+    /* Menu styles - using fixed positioning for slide-out effect */
+    .nav-links {
+      position: fixed; 
+      top: 0;
+      left: -250px; 
+      width: 250px; 
+      height: 100%; 
+      background-color: #700303;
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 2rem;
+      z-index: 9999; 
+      transition: left 0.3s ease; 
+      opacity: 1; 
+      visibility: visible;
+    }
+  
+    .nav-links.active {
+      left: 0; /* slide the menu in from the left */
+      display: flex;
+    }
+  
+    .nav-links a {
+      font-size: 1.5rem; 
+      margin-bottom: 1rem; 
+      width: 100%; 
+      padding: 10px 0;
+      text-align: left;
+      transform: none; 
+    }
+
+    .nav-links a:hover {
+        border-radius: 0;
+        transform: none; 
+    }
+  }

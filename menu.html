@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Pure Veg.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./menu.css">
+    <link rel="stylesheet" href="./navbar.css">
+</head>
+<body>
+    <div class="header">
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+        <img class="logo" src="./logo.JPG" alt="Logo">
+        <h1>Aditya Pure Veg</h1>
+    </div>
+
+    <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./menu.html" class="active">Menu</a>
+        <a href="./photos.html">Photos</a>
+        <a href="./contact.html">Contact Us</a>
+        <a href="./reviews.html">Reviews</a>
+    </div>
+
+    <div class="menu-viewer-wrapper">
+        <button id="prev-btn" class="nav-arrow left-arrow" disabled>
+            &#10094; </button>
+
+        <div class="menu-book">
+            <div class="menu-page active" data-page="0">
+                <img src="./Menu Images/M01.jpg" alt="Menu Page 1" loading="lazy" width="700" height="1050">
+            </div>
+            <div class="menu-page" data-page="1">
+                <img src="./Menu Images/M02.jpg" alt="Menu Page 2" loading="lazy" width="700" height="1050">
+            </div>
+            <div class="menu-page" data-page="2">
+                <img src="./Menu Images/M03.jpg" alt="Menu Page 3" loading="lazy" width="700" height="1050">
+            </div>
+            <div class="menu-page" data-page="3">
+                <img src="./Menu Images/M04.jpg" alt="Menu Page 4" loading="lazy" width="700" height="1050">
+            </div>
+            <div class="menu-page" data-page="4">
+                <img src="./Menu Images/M05.jpg" alt="Menu Page 5" loading="lazy" width="700" height="1050">
+            </div>
+            <div class="menu-page" data-page="5">
+                <img src="./Menu Images/M06.jpg" alt="Menu Page 6" loading="lazy" width="700" height="1050">
+            </div>
+            <div class="menu-page" data-page="6">
+                <img src="./Menu Images/M07.jpg" alt="Menu Page 7" loading="lazy" width="700" height="1050">
+            </div>
+            <div class="menu-page" data-page="7">
+                <img src="./Menu Images/M08.jpg" alt="Menu Page 8" loading="lazy" width="700" height="1050">
+            </div>
+            <div class="menu-page" data-page="8">
+                <img src="./Menu Images/M09.jpg" alt="Menu Page 9" loading="lazy" width="700" height="1050">
+            </div>
+        </div>
+
+        <button id="next-btn" class="nav-arrow right-arrow">
+            &#10095; </button>
+    </div>
+
+    <footer class="footer">
+        <p>© Aditya Pure Veg</p>
+    </footer>
+
+    <script src="./index.js"></script> <script src="./menu.js"></script> </body>
+</html>

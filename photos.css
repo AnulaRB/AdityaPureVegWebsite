@@ -1,0 +1,38 @@
+/* Removed problematic body grid area definitions for header/navbar/footer */
+
+.container {
+    display: grid;
+    /* Modern, responsive grid: as many columns as possible with a min width of 280px */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    padding: 2rem;
+    gap: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.container .pic {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container .pic:hover {
+    transform: scale(1.03); /* Slight zoom on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.container .pic img {
+    /* Fixed height for uniform gallery blocks, object-fit ensures no distortion */
+    width: 100%;
+    height: 300px; 
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; 
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Removed original fixed-width media query since auto-fit handles responsiveness */

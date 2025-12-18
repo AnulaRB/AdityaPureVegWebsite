@@ -1,0 +1,187 @@
+/* --- Global Styles & Layout Cleanup --- */
+
+body {
+    /* Removed old, restrictive grid layout. Now relies on standard flow and margin/padding. */
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* Set global font for consistency */
+    background-color: #faf6ce72; /* Light background color */
+}
+
+/* --- Hero Section Styling --- */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: 100%; /* Use full width */
+}
+
+.hero {
+    position: relative;
+    height: 50vh; /* Standard hero height for modern look */
+    width: 90%; 
+    max-width: 1200px;
+    margin-bottom: 2rem;
+}
+
+.background {
+    background-image: url('./Food Images/IMG-c01.JPG'); 
+    background-position: center;
+    background-size: cover; /* Use COVER to fill the frame completely */
+    background-repeat: no-repeat;
+    height: 100%;
+    width: 100%; /* Use 100% width of the parent .hero */
+    position: absolute;
+    border-radius: 10px; /* Subtle radius */
+    z-index: 1;
+}
+
+.overlay {
+    position: absolute;
+    color: white;
+    text-align: center;
+    height: 100%;
+    width: 100%; /* Use 100% width of the parent .hero */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.75); /* Darker overlay for better text readability */
+    z-index: 2;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif; /* Use modern font */
+    font-size: 3rem; 
+    font-weight: 700;
+}
+
+/* Subtler separator */
+hr {
+    width: 80%;
+    border: none;
+    border-top: 2px solid #700303; /* Used primary color for emphasis */
+    opacity: 0.3;
+    margin: 2rem 0;
+}
+
+/* --- Content Section Styling (Text Improvement) --- */
+
+.content {
+    padding: 1rem 5%; /* Padding for content on all sides */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Styling for H2 headings */
+.content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    margin-left: 0;
+    padding: 0;
+    font-weight: 700;
+    color: #700303;
+    text-decoration: none; 
+    border-bottom: 3px solid #700303; /* Strong underline effect */
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    margin-top: 2.5rem;
+}
+
+.content h3 {
+    /* H3 is no longer used, so this style is hidden. */
+    display: none; 
+}
+
+.content p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin: 15px 0;
+    color: #333;
+    text-align: justify;
+}
+
+/* Base style for all lists in content */
+.content ul {
+    list-style: none; /* Remove default bullets */
+    padding-left: 0;
+    margin-top: 15px;
+}
+
+/* Styling for the Core Value list (Replaces old UL style) */
+.value-list li {
+    background-color: #ffffff; 
+    border-left: 5px solid #700303; /* Red highlight bar */
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Styling for the Practical Info/Features list */
+.feature-list li {
+    background-color: #f3f2e1; /* Light, contrasting background */
+    padding: 12px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Styling for bold titles within list items */
+.list-title {
+    font-weight: 700;
+    color: #700303; /* Primary color for titles */
+    display: inline-block;
+    margin-right: 5px;
+}
+
+/* Call to Action Button Style (New element) */
+.cta-button {
+    display: block;
+    width: fit-content;
+    margin: 30px auto 10px auto;
+    padding: 15px 30px;
+    background-color: #700303;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 40px; /* Pill shape */
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    border: 2px solid transparent;
+}
+
+.cta-button:hover {
+    background-color: white;
+    color: #700303;
+    border: 2px solid #700303;
+    transform: translateY(-2px);
+}
+
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+    .hero {
+        height: 40vh;
+    }
+    .overlay {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
+    .content h2 {
+        font-size: 1.5rem;
+    }
+    .value-list li, .feature-list li, .content p {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+}
+
+.hidden {
+    display: none;
+}

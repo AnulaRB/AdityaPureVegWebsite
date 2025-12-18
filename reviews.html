@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Pure Veg.</title>
+    <link rel="stylesheet" href="./reviews.css">
+    <link rel="stylesheet" href="./navbar.css">
+</head>
+<body>
+    <div class="header">
+        <button class="menu-toggle" aria-label="Toggle Menu">☰</button>
+        <img class="logo" src="./logo.JPG" alt="Logo">
+        <h1>Aditya Pure Veg</h1>
+      </div>
+      
+      <!-- NAV LINKS (Initially Hidden on Mobile) -->
+      <div class="nav-links">
+        <a href="./index.html">Home</a>
+        <a href="./menu.html">Menu</a>
+        <a href="./photos.html">Photos</a>
+        <a href="./contact.html">Contact Us</a>
+        <a href="./reviews.html">Reviews</a>
+      </div>
+    </div>
+    <div class="reviews">
+        <h2>Customer Reviews</h2>
+        
+        <!-- Display Submitted Reviews -->
+        <div class="reviews-grid" id="reviews-container">
+          <!-- Dynamically added reviews will go here -->
+        </div>
+        
+        <div class="review-form">
+          <h3>Leave a Review</h3>
+          <form id="review-form">
+            <input type="text" id="user-name" placeholder="Enter Your Name" required minlength="4" maxlength="25"> <br><br>
+            <textarea id="review-text" placeholder="Write Your Review Here" required></textarea><br><br><br>
+            <button type="submit">Submit Review</button>
+          </form>
+        </div>
+      </div>
+      <div class="footer">
+        <span>&#169; <span><p>Aditya Pure Veg</p></span></span> 
+      </div>
+    
+      <script src="./index.js"></script>
+      <script src="./reviews.js"></script>
+</body>
+</html>
