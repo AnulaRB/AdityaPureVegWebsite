@@ -4,54 +4,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.getElementById('next-btn');
     const totalPages = pages.length;
     let currentPageIndex = 0;
+    let isAnimating = false;
 
-    // Initially show the first page and update button visibility
+    // Initially show the first page and update button state
     showPage(currentPageIndex);
 
     prevBtn.addEventListener('click', () => changePage(-1));
     nextBtn.addEventListener('click', () => changePage(1));
 
     function showPage(index) {
-        // Remove 'active' and 'flip' classes from all pages
         pages.forEach(page => {
-            page.classList.remove('active', 'flip-prev', 'flip-next');
-            page.style.zIndex = 0; // Reset Z-index
+            page.classList.remove('active', 'exit-left', 'exit-right', 'enter-left', 'enter-right');
         });
-
-        // Add 'active' class to the current page
-        const currentPage = pages[index];
-        currentPage.classList.add('active');
-        currentPage.style.zIndex = 2;
-
-        // Update button visibility
+        pages[index].classList.add('active');
         prevBtn.disabled = index === 0;
         nextBtn.disabled = index === totalPages - 1;
     }
 
     function changePage(direction) {
+        if (isAnimating) return;
         const newIndex = currentPageIndex + direction;
+        if (newIndex < 0 || newIndex >= totalPages) return;
 
-        if (newIndex >= 0 && newIndex < totalPages) {
-            const oldPage = pages[currentPageIndex];
-            const newPage = pages[newIndex];
+        isAnimating = true;
 
-            // 1. Prepare the old page for animation
-            oldPage.style.zIndex = 3;
-            newPage.style.zIndex = 1;
+        const oldPage = pages[currentPageIndex];
+        const newPage = pages[newIndex];
 
-            if (direction > 0) {
-                // Next page (flip-next)
-                oldPage.classList.add('flip-next');
-            } else {
-                // Previous page (flip-prev)
-                oldPage.classList.add('flip-prev');
-            }
-
-            // Wait for the flip animation to mostly complete (500ms)
-            setTimeout(() => {
-                currentPageIndex = newIndex;
-                showPage(newIndex);
-            }, 500);
+        // Position the incoming page off-screen on the correct side
+        if (direction > 0) {
+            newPage.classList.add('enter-right');
+        } else {
+            newPage.classList.add('enter-left');
         }
+
+        // Make incoming page visible (but off-screen)
+        newPage.classList.add('active');
+
+        // Force a reflow so the browser registers the starting position
+        newPage.getBoundingClientRect();
+
+        // Slide old page out, slide new page in
+        if (direction > 0) {
+            oldPage.classList.add('exit-left');
+            newPage.classList.remove('enter-right');
+        } else {
+            oldPage.classList.add('exit-right');
+            newPage.classList.remove('enter-left');
+        }
+
+        setTimeout(() => {
+            currentPageIndex = newIndex;
+            showPage(currentPageIndex);
+            isAnimating = false;
+        }, 500);
     }
 });
