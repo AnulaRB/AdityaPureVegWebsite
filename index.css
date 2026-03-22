@@ -28,7 +28,7 @@ body {
 }
 
 .background {
-    background-image: url('./Food Images/IMG-c01.JPG'); 
+    background-image: url('./Food_Photos/IMG-c01.JPG'); 
     background-position: center;
     background-size: cover; /* Use COVER to fill the frame completely */
     background-repeat: no-repeat;
